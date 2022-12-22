@@ -8,7 +8,7 @@ Consists of a sample project using a Node.js/Express service that exposes data w
 2. Give permissions to this directory `sudo chmod 744 grafana`
 3. Build the application image using the Docker CLI:
 ```sh
-### TO DO
+docker build -t nodejs-metrics-tryout .
 ```
 4. Use docker-compose 🐋 to run the application and the Grafana and Prometheus servers:
 ```sh

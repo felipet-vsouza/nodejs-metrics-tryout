@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-metrics-tryout",
+  "version": "1.0.0",
+  "description": "Consists of a sample project using a Node.js/Express service that exposes data with [express-prom-bundle](https://github.com/jochen-schweizer/express-prom-bundle) (built on top of [prom-client](https://github.com/siimon/prom-client)). It also contains a **docker-compose** 🐋 file that deploys two other containers - a Prometheus server and a Grafana server -, so we can collect the service data and use it to generate dashboards and graphs.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipet-vsouza/nodejs-metrics-tryout.git"
+  },
+  "author": "felipet-vsouza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipet-vsouza/nodejs-metrics-tryout/issues"
+  },
+  "homepage": "https://github.com/felipet-vsouza/nodejs-metrics-tryout#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2"
+  }
+}
