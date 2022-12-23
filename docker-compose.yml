@@ -3,7 +3,7 @@ version: "3.8"
 services:
   application:
     image: github/felipet-vsouza/nodejs-metrics-tryout
-    container_name: nodejs-metrics-tryout
+    container_name: application
     networks:
       - netw
     ports:
@@ -26,6 +26,15 @@ services:
       - netw
     ports:
       - 3000:3000
+  artillery:
+    build: artillery
+    container_name: artillery
+    depends_on:
+      - application
+      - prometheus
+      - grafana
+    networks:
+      - netw
 
 networks:
   netw:

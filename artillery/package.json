@@ -1,0 +1,12 @@
+{
+  "name": "artillery-simulation",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "artillery run ./artillery.yaml"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "artillery": "^2.0.0-27"
+  }
+}

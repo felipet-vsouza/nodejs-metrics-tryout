@@ -15,15 +15,19 @@ const orderPriceHistogram = new Histogram({
 
 orderRouter.post('/finishOrder', async (req, res, next) => {
     try {
-        const { totalPrice } = req.body;
+        const { totalPrice: rawTotalPrice } = req.body;
+
+        const parsedTotalPrice = typeof rawTotalPrice === 'string' || rawTotalPrice instanceof String ?
+            Number.parseFloat(rawTotalPrice) : rawTotalPrice;
 
         console.log('Just finished an order.', JSON.stringify(req.body));
+
         orderCounter.inc();
-        orderPriceHistogram.observe(totalPrice);
+        orderPriceHistogram.observe(parsedTotalPrice);
 
         return res.status(200).json({
             status: 'SOLD',
-            totalPrice
+            totalPrice: parsedTotalPrice
         });
     } catch (err) {
         return next(err);
