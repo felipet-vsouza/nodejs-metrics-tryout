@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  application:
+    image: github/felipet-vsouza/nodejs-metrics-tryout
+    container_name: nodejs-metrics-tryout
+    networks:
+      - netw
+    ports:
+      - 4777:4777
+  prometheus:
+    build: prometheus
+    container_name: prometheus
+    depends_on:
+      - application
+    networks:
+      - netw
+    ports:
+      - 9090:9090
+  grafana:
+    image: grafana/grafana
+    depends_on:
+      - application
+      - prometheus
+    networks:
+      - netw
+    ports:
+      - 3000:3000
+
+networks:
+  netw:
